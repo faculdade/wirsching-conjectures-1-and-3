@@ -1,7 +1,7 @@
 # Reproducibility material: Wirsching's Conjectures 1 and 3
 
-Code for R. A. Tavares, *Wirsching's 2003 Conjectures on Positive
-Predecessor Density: Conjectures 1 and 3 Proved*.
+Code for R. A. Tavares, *Wirsching's Positive-Predecessor-Density
+Program: Proofs of Conjectures 1 and 3*.
 
 Archived on Zenodo. **Cite the version DOI**, not the concept one:
 
