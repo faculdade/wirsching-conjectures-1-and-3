@@ -1,0 +1,12 @@
+# Python >= 3.11 is a hard floor: section-12-numerics/experiment_conjecture3.py
+# calls sys.set_int_max_str_digits, which does not exist before 3.11.
+#
+# Lower bounds are what the code needs. The exact versions the reproducibility
+# audit of 2026-08-26 ran against, on CPython 3.12, were mpmath 1.4.1,
+# python-flint 0.9.0 and numpy 2.5.2.
+#
+# python-flint (Arb/Acb ball arithmetic) is needed only where a rigorous
+# enclosure is claimed: section-06's certificate and the derivative bounds (10).
+mpmath>=1.3.0
+python-flint>=0.6
+numpy>=2.0
