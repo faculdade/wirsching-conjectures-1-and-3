@@ -1,11 +1,28 @@
 # Section 12: the evaluation of phi, and the concordance
 
-Backs the two numbers Section 12 puts beside Theorem 10.1.
+**Read this first.** The paper no longer reports the extrapolation this
+folder was built around. That paragraph was cut from the Discussion on
+2026-08-26: with Theorem 10.1 proved, half a page explaining why an
+earlier regression missed the limit weakened the close rather than
+strengthening it.
 
-| Script | Backs |
-|---|---|
-| `experiment_conjecture3.py` | the evaluation of `phi` through depth `l = 500`, with zero truncation error at every point tested, and the two extrapolation fits |
-| `concordance.py` | the comparison of those fitted intercepts against the proved limit `e^{H(0)}` |
+What survives, and why the folder stays:
+
+- `concordance.py` still backs a number the paper does quote, the
+  `e^{H(0)} = 0.534122...` of Theorem 10.1. It derives `H(0)` from
+  Theorem 6.1's decomposition and cross-checks it against section 6's
+  certified enclosure of `H(0) - H(log 3/2)`, which is an independent
+  route to the same constant rather than a restatement of it.
+- `experiment_conjecture3.py` backs nothing in the current paper. It is
+  the numerical work that preceded the theorem, kept because it is real
+  and because the paper's Data Availability points at it as such. It
+  evaluates `phi` with zero truncation error at every point tested,
+  which is worth having whether or not a paragraph cites it.
+
+Everything below describes what the scripts do. The extrapolation
+figures are still correct; they are simply no longer quoted anywhere.
+
+---
 
 ## What is exact and what is not
 

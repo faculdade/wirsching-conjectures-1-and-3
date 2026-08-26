@@ -17,7 +17,7 @@
   Crandall Applegate Borovkov Pfeifer Rvachev Wirsching Volkov Hafouta
   Terracol Rozier Behani Barina Sander Fabius Dragicevic Froyland
   Wahr-schein-lich-keits-theo-rie
-  Vaienti Sinai Berg Tao Liu Titchmarsh Heuberger Krenn Dumas}
+  Vaienti Sinai Berg Tao Liu Hadamard Poussin Heuberger Krenn Dumas}
 \usepackage{orcidlink}
 \usepackage{fontawesome5}
 
@@ -70,13 +70,13 @@ $\varphi$, a base-$3$ analogue of the Fabius density, against an
 explicit $\varphi_0$ due to Berg and Kr\"uppel. The exact log-Laplace
 transform of $\varphi$ splits into a smooth part, a $\log3$-periodic
 correction $H$, and a doubly exponentially small remainder. Berg and
-Kr\"uppel gave that correction as an infinite product in 1998 and did
-not ask whether it is constant. We give $H$ as a Fourier series with
+Kr\"uppel represented that correction as an infinite product in 1998;
+their analysis did not determine whether it is constant. We give $H$ as a Fourier series with
 coefficients in closed form in $\Gamma$ and $\zeta$; a classical
 zero-free theorem for $\zeta$ shows it is not constant, and we enclose
 its oscillation rigorously. Wirsching's comparison class fixes one
-phase of $H$, and there Conjecture~3 holds with limit
-$e^{H(0)}=0.534122\ldots$. Off that class the phase sweeps a full
+phase of $H$, and there Conjecture~3 holds with limit $e^{H(0)}$,
+numerically $0.534122\ldots$. Off that class the phase sweeps a full
 period, so the unrestricted asymptotic
 $\varphi(t)\sim\kappa\varphi_0(t)$ fails. Condition $(\star4)$ follows, at every window radius, with $\mu=1/3$:
 what Wirsching's argument needs is weaker than Conjecture~3 itself, and
@@ -112,7 +112,7 @@ weights grow subexponentially while the binomial ratio decays
 geometrically, so a window of width $O(\sqrt\ell)$ dominates, and its
 radius can be budgeted to sit inside the hypothesis. Together with
 Wirsching's own two theorems this makes $(\star3)$ alone sufficient for
-uniform positive predecessor density, unconditionally
+uniform positive predecessor density through proved implications only
 (Corollary~\ref{cor:star3-density}).
 
 Conjecture~3 concerns $\varphi$ near $0$, compared against an explicit
@@ -178,7 +178,7 @@ linear-programming solution of Krasikov's system
 inequalities further, obtaining for each fixed $a\not\equiv0\bmod3$, and
 for $x$ large depending on $a$, at least $x^{0.84}$ integers below $x$
 with $a$ in their forward orbit \cite{KrasikovLagarias2003}. That is the
-current state of the art for the exponent. It is a sublinear count with
+published record for the exponent. It is a sublinear count with
 an $a$-dependent threshold, so it is weaker in both respects than the
 uniform positive density, of order $x/a$, that Wirsching's chain
 targets.
@@ -224,10 +224,15 @@ modulo $3^n$ by independent geometric variables to the uniform measure,
 noting that the strengthened version in which individual probabilities
 converge is false \cite{Sinai2004}. Volkov's randomly labelled binary
 tree for $5x+1$ carries direction-dependent edge laws
-\cite{Volkov2006}, and Tao's Syracuse random variable \cite{Tao2022} is
-the residue law $(\star3)$ is a statement about: it approaches
-uniformity at fine scales while failing to be uniformly distributed on
-$\mathbb Z/3^n\mathbb Z$.
+\cite{Volkov2006}, and Tao's Syracuse random variable \cite{Tao2022}
+is a closely related canonical residue law, approaching uniformity at
+fine scales while failing to be uniformly distributed on
+$\mathbb Z/3^n\mathbb Z$. It is not the object $(\star3)$ constrains.
+$(\star3)$ asks for a pointwise lower bound on fixed-cost slices of the
+generators, at growing $3$-adic resolution and uniformly in
+$a\in\mathbb Z_3^\times$; Tao's variable conditions on nothing of the
+kind. The distance between the two is where the difficulty of
+$(\star3)$ lives.
 
 Current work runs in several directions. Computation has verified the
 conjecture below $2^{71}$ \cite{Barina2025}. On the exponent,
@@ -239,9 +244,7 @@ $x^{0.90}$ by an exact feasible point for the level-$18$
 Krasikov--Lagarias linear program together with an adaptive
 elimination of advanced terms, with the whole theorem formalized in
 Lean and its two native-computation steps replayed by independent exact
-verifiers \cite{Mazur2026}. It is unrefereed, and it declares
-substantial generative-AI involvement in the mathematics; the
-formalization is what carries it. None of this line reaches what
+verifiers \cite{Mazur2026}. None of this line reaches what
 Wirsching's chain targets: these are sublinear counts with an
 $a$-dependent threshold, where the chain aims at a density of order
 $x/a$ uniform in $a$. Other recent work addresses the finer structure of
@@ -253,8 +256,7 @@ two-scale difference equation with dilation parameter $3$, in Berg and
 Kr\"uppel's family~\cite{BergKruppel1998}, and $\varphi$ is a translate
 of Rvachev's atomic function $h_3$~\cite{Rvachev1990}. Kato and
 McLeod's study of $y'(x)=ay(\lambda x)+by(x)$~\cite{KatoMcLeod1971} is
-the analytic ancestor, and Derfel surveys the
-family~\cite{Derfel1995}. Wirsching noticed the connection to Rvachev's
+the analytic ancestor. Wirsching noticed the connection to Rvachev's
 functions himself and left it to future work~\cite{Wirsching2001}.
 
 Solutions of such equations carry log-periodic fluctuations in their
@@ -271,9 +273,11 @@ $\Gamma$ and $\zeta$ coefficients of
 Proposition~\ref{prop:Hfourier} come from, and with them the
 non-constancy of $H$.
 
-Wirsching's three conjectures themselves have gone unworked. The 2003
+We are not aware of a published resolution of any of Wirsching's three
+conjectures. The 2003
 paper is cited sparsely, in bibliographies of the problem and in adjacent
-work, and no published follow-up takes up any of the three. For the
+work, and we found no published follow-up taking up any of the three.
+For the
 second, what this paper gives is an account of how far the machinery
 natural to it reaches, and where the argument developed here stops.
 
@@ -418,7 +422,22 @@ Conjecture~2 is the one implication still conjectural. Here $(\star1)$ is a $\li
 relative to their Haar average, uniform over sequences
 $(k_\ell)$ with $|\ell-k_\ell|\le\delta\sqrt\ell$; $(\star2)$ is the same
 statement for his generators $g_\ell(k,a)$; $(\star3)$ upgrades the
-$\liminf$ over $\ell$ to a bound holding for every $\ell\ge\ell_0$;
+$\liminf$ over $\ell$ to a bound holding for every $\ell\ge\ell_0$. Its
+quantifiers are worth writing out, because they are stronger than
+$(\star2)$'s in a way that matters below. Wirsching's Theorem 2 reads
+``if there are real numbers $\delta,\mu>0$ and an index $\ell_0$ such
+that\ldots'' \cite[\S3]{Wirsching2003}, so all three are chosen before
+$a$:
+\[
+ \exists\,\delta,\mu>0\ \ \exists\,\ell_0\ \ \forall a\in\mathbb Z_3^\times\ \
+ \forall\ell\ge\ell_0\ \ \forall(x_\ell)\in\widetilde A_\delta:\quad
+ \widetilde g_\ell(x_\ell,a)\ \ge\ \mu\int_{\mathbb Z_3^\times}
+ \widetilde g_\ell(x_\ell,b)\,db .
+\]
+In $(\star1)$ and $(\star2)$ the eventual index sits inside a
+$\liminf$ and may depend on $a$. Here it may not: one $\ell_0$ serves
+every unit at once. That is the extra demand $(\star3)$ makes, and
+\S\ref{sec:discussion} returns to it;
 and $(\star4)$ asserts that there is a constant $\mu>0$ with
 \[
  \liminf_\ell\frac{(W_3^\ell\chi_1)(x_\ell)}{(W_3^\ell\chi_0)(x_\ell)}
@@ -471,9 +490,28 @@ hold at each fixed $a$ and on the averages respectively
 partitions of $m$ into the parts $c_0,\ldots,c_\ell$ with repetition.
 Both $g_\ell$ and $p_\ell$ are non-negative.
 
-Neither $(\star2)$ nor $(\star1)$ says anything about uniformity in
-$a$, so nothing below assumes any; $a$ stays fixed and every constant
-is allowed to depend on it.
+The quantifier order matters here. Wirsching states each of
+$(\star1)$, $(\star2)$ and $(\star3)$ as ``if there are real numbers
+$\delta,\mu>0$ such that\ldots'', with $a$ occurring free inside the
+displayed inequality \cite[\S\S1--3]{Wirsching2003}; he does not write
+the quantifier on $a$ out. It is read universally, which places
+$\delta_1$ and $\mu_1$ before it and makes them global:
+\[
+ \exists\,\delta_1,\mu_1>0\ \ \forall a\in\mathbb Z_3^\times\ \
+ \forall\varepsilon>0\ \ \exists\,\ell_0(a,\varepsilon)\ \
+ \forall\ell\ge\ell_0\ \ \forall(k_m)\in A_{\delta_1}:\quad
+ \frac{g_\ell(k_\ell,a)}{\bar g_\ell(k_\ell)}\ \ge\ \mu_1-\varepsilon .
+\]
+The stated uniformity is over sequences, so the eventual index
+$\ell_0$ may depend on $a$; the constant $\mu_1$ may not. That
+distinction is load bearing, and it is the reading Wirsching's own
+proof of Theorem 1 uses, where a single positive constant has to serve
+every admissible $a$ to yield uniform predecessor density. A $\mu_1$
+free to depend on $a$ and tend to $0$ would leave nothing uniform to
+conclude. Below,
+$a$ is fixed and only $\ell_0$ is permitted to depend on it: the
+argument carries the same $\mu_1$ from the generators to the Elka
+functions, for every $a$.
 
 \begin{lemma}[Window form of the hypothesis]\label{lem:window-form}
 Suppose $(\star2)$ holds with radius $\delta_1$ and constant $\mu_1$.
@@ -532,7 +570,9 @@ $U_0,\ldots,U_\ell$ of capacities $c_j$ \cite[\S2]{Wirsching2003}, the
 occupancy range $0,\ldots,c_j-1$ being what the support bound
 $\sum_j(c_j-1)=3^\ell-\ell-1$ forces.
 
-Since $p_\ell(0)=1$ and every term is non-negative,
+Terms with $m>k$ contribute nothing: $g_\ell(j,\cdot)=0$ for $j<0$, so
+$\bar g_\ell(k-m)=0$ there, and the sum may be read over
+$0\le m\le k$. Since $p_\ell(0)=1$ and every term is non-negative,
 $\bar g_\ell(j)\le\bar e_\ell(j)$ for every $j$, so by
 \eqref{eq:ebar-binomial}
 \[
@@ -913,10 +953,14 @@ This is an instance of the de Bruijn--Mahler phenomenon: a base-change harmonic 
 transformed, picks up simple poles on a vertical line, and their residues assemble into an exactly
 periodic correction with Fourier coefficients in $\Gamma$ and $\zeta$. De Bruijn found the first
 case of this in Mahler's partition asymptotic \cite{DeBruijn1948}; Erd\H{o}s and Richmond name it
-on p.~448 of \cite{ErdosRichmond1976}; Kato and McLeod \cite{KatoMcLeod1971} and Derfel
-\cite{Derfel1995} established the log-squared decay rate of Section~\ref{sec:prelim}'s
-comparison asymptotic $\varphi_0$ as generic across this whole class of rescaled functional
-equations. Our contribution here is the closed form for the periodic correction itself, not the mechanism
+on p.~448 of \cite{ErdosRichmond1976}; Kato and McLeod's \S4 already exhibits the Gaussian-in-log decay that
+Section~\ref{sec:prelim}'s comparison asymptotic $\varphi_0$ carries: their
+characterization (4.3) of the admissible asymptotics for
+$y'(x)=ay(\lambda x)+by(x)$ is estimated there through
+$\exp\{(n+\kappa)\log x-(\log x)^2/2|\log\lambda|\}$
+\cite[\S4, eqs.~(4.3), (4.9a)]{KatoMcLeod1971}, so the log-squared rate is
+generic across this class of rescaled equations rather than special to
+$\varphi_0$. Our contribution here is the closed form for the periodic correction itself, not the mechanism
 producing it.
 \end{remark}
 
@@ -970,8 +1014,8 @@ explicit interval-arithmetic certificate:
 \]
 and consequently $\operatorname{osc}(H) := \sup H - \inf H \ge 3.7719\times 10^{-4}$; evaluating $H$
 at two further, well-separated points certifies the stronger bound
-$\operatorname{osc}(H) \ge 4.1874494771\times10^{-4}$, and the leading Fourier mode alone certifies
-a matching upper bound, together giving
+$\operatorname{osc}(H) \ge 4.1874494771\times10^{-4}$, and the leading Fourier mode together with
+a certified bound on the remaining modes gives a matching upper bound, the two giving
 \[
 4.1874494771\times10^{-4} \;\le\; \operatorname{osc}(H) \;\le\; 4.187981\times10^{-4}.
 \]
@@ -984,7 +1028,17 @@ product of three factors, each nonzero: $2^{i\omega_1}\ne0$ trivially; $\Gamma$ 
 anywhere, and $-i\omega_1$ is not one of its poles ($\omega_1\ne0$ is real, and $\Gamma$'s poles are
 only at the non-positive integers), so $\Gamma(-i\omega_1)\ne0$; and $1-i\omega_1$ lies on the line
 $\operatorname{Re}s=1$ with $\omega_1\ne0$, where $\zeta(1+it)\ne0$ for every real $t\ne0$ by the
-classical zero-free theorem of Hadamard and de la Vall\'ee Poussin \cite{Titchmarsh1986}, so
+classical zero-free theorem of Hadamard \cite{Hadamard1896} and de la
+Vall\'ee Poussin \cite{ValleePoussin1896}\footnote{The qualitative
+statement is what is used, and it is what those memoirs prove.
+Hadamard sets it as his own object, pp.~199--200: ``il n'a m\^eme pas
+\'et\'e \'etabli que la fonction $\zeta$ n'ait pas de z\'eros sur la
+droite $\mathfrak{R}(s)=1$. C'est cette derni\`ere conclusion que je me
+propose de d\'emontrer.'' De la Vall\'ee Poussin proves it
+independently and, in an addendum, records that Hadamard ``d\'emontre,
+lui aussi, que $\zeta(s)$ n'a pas de z\'eros sur la droite
+$\mathfrak{R}(s)=1$''. No quantitative zero-free region is needed
+here.}, so
 $\zeta(1-i\omega_1)\ne0$. Hence $\hat H(1)\ne0$, and a periodic function with a nonzero Fourier
 coefficient at $m\ne0$ cannot be constant.
 
@@ -1705,7 +1759,8 @@ read one object at two scopes.
 \label{cor:bk}
 $e^H$ is Berg and Kr\"uppel's own periodic factor for the eigenfunction $\varphi$, from
 Proposition~9.3 of \cite{BergKruppel1998}, which they give as an infinite product; $H$ itself is
-its logarithm. Its Fourier series, Proposition~\ref{prop:Hfourier}, is new for this
+its logarithm. To our knowledge its Fourier series, Proposition~\ref{prop:Hfourier}, has not
+previously been given for this
 function\footnote{Fourier coefficients of a log-periodic fluctuation, obtained as residues of a
 Dirichlet series or by Mellin inversion, are standard for radix-rational and $q$-regular
 sequences; see \cite{Dumas2008} and \cite{HeubergerKrenn2018}, and \cite{DeBruijn1948} and
@@ -1976,19 +2031,22 @@ already have, and neither changes $\mu=1/3$.
 \end{remark}
 
 Corollary~\ref{cor:star3-density} now reads as a statement about the
-whole chain. Uniform positive predecessor density on the non-cyclic
-integers $a\not\equiv0\bmod3$ follows from $(\star3)$ alone,
-unconditionally.
+whole chain. Condition $(\star3)$ implies uniform positive predecessor
+density on the non-cyclic integers $a\not\equiv0\bmod3$ through proved
+implications only, with no conjecture among them.
 
 State what that does and does not say. Conditions $(\star3)$,
 $(\star2)$ and $(\star1)$ remain unproved: Theorem~\ref{thm:wirsching-conj1}
 proves the implication $(\star2)\Rightarrow(\star1)$ and not its
 hypothesis, and Wirsching's Theorem~2 proves
 $(\star3)\Rightarrow(\star2)$ and not its hypothesis. What has changed
-is that the three now stand or fall together, with no conjecture
-between them, so a proof of $(\star3)$ carries the chain to its
-conclusion and $(\star3)$ is the sole condition whose truth remains to
-be established.
+is that no conjecture stands between them: a proof of $(\star3)$ now
+propagates through two proved implications to $(\star2)$ and
+$(\star1)$, and so to the conclusion. That is one direction only.
+Should $(\star3)$ turn out false, $(\star2)$ could still hold, and so
+could $(\star1)$. What follows is that $(\star3)$ is the only condition
+whose truth still has to be established in order to complete the
+chain.
 
 Wirsching's route to $(\star3)$ is Conjecture~2, the implication
 $(\star4)\Rightarrow(\star3)$, whose antecedent
@@ -2046,9 +2104,10 @@ $(\star5)$ by Theorem~\ref{thm:conj3} and $(\star4)$ by
 Theorem~\ref{thm:star4}, and every implication from $(\star3)$ downward
 is a theorem, so $(\star3)$ implies uniform positive predecessor
 density (Corollary~\ref{cor:star3-density}). Conditions $(\star3)$,
-$(\star2)$ and $(\star1)$ are all still unproved. They stand or fall
-together: $(\star3)$ carries the other two, so it is the only one whose
-truth remains to be established. Conjecture~2 is the source's route
+$(\star2)$ and $(\star1)$ are all still unproved. $(\star3)$ carries
+the other two through proved implications, in that direction only, so
+it is the only one whose truth still has to be established to complete
+the chain. Conjecture~2 is the source's route
 into it and is not the only conceivable one.
 
 Wirsching stated the weaker Conjecture~3 instead of the stronger
@@ -2059,14 +2118,8 @@ phase $\theta\in[0,c)$ swept by $H$ admits some sequence along which the ratio c
 $e^{H(\theta)}$: take $\tau_\ell := \Phi_0(\theta+\ell c)$, $z_\ell := e^{-\tau_\ell}$, so $w_0(\tau_\ell)=\theta+\ell c$
 exactly, and apply Theorem~\ref{thm:formulaA}, Proposition~\ref{prop:envelope}, and
 Proposition~\ref{prop:bkidentity} as in the proof of Theorem~\ref{thm:conj3}. What is
-special about phase $0$ is only that it is the one Wirsching's own class $\widetilde A_{\delta_5}$
-happens to fix. That phase sits close to $w_{1011118}$, one of four points where $H$ is printed in
-Proposition~\ref{prop:Hcert}'s proof: combining that value with $H(0)$ gives
-$H(0) - H(w_{1011118}) = 5.25\times10^{-6}$, a floating-point computation (not itself a certified
-enclosure), against a
-certified oscillation of at least $4.18\times10^{-4}$. (Whether $w_{1011118}$ is where $H$ attains
-its true minimum is not certified, per Proposition~\ref{prop:Hcert}'s own caveat on the grid
-search.) We do not know whether the near-match with phase $0$ is coincidental.
+special about phase $0$ is only that it is the one Wirsching's own class
+$\widetilde A_{\delta_5}$ happens to fix.
 
 Remark~\ref{rem:blindness} answers the other half of the question, why
 the weaker statement was enough. Wirsching's proof does one thing with
@@ -2074,31 +2127,15 @@ the constant, which is to cancel it across a factor of $3$, and a
 factor of $3$ is one period of $H$. His argument never sees the
 periodic correction at all.
 
-Two numbers are worth putting beside Theorem~\ref{thm:conj3}. An
-evaluation of $\varphi$ through depth $\ell=500$, at $100$-digit
-working precision and with zero truncation error at every point tested,
-was carried out before the theorem was
-proved. Extrapolating $\varphi/\varphi_0$ along the central sequence
-gave intercepts $\Lambda=-0.618860$ under a $\Lambda+b/\sqrt\ell$
-model and $\Lambda=-0.599498$ under $\Lambda+b'/\ln^2\ell$, the two
-fitting that range comparably, that is $0.53856$ and $0.54909$. The
-proved limit, in the same normalization, is
-$e^{H(0)}=0.534122\ldots$, so the two overshoot by $0.83\%$ and
-$2.80\%$ and the interval they span excludes it. The largest movement
-any check inside either model produced was $4.22\times10^{-4}$, from
-adding a further $1/\ell$ term, against a gap of $8.27\times10^{-3}$
-to the true value: a factor of $19.6$. That
-shows the fitted intercepts are wrong over the range fitted. It does
-not show the expansions are: an approach
-$\Lambda_{\rm true}+b\ell^{-1/2}+o(\ell^{-1/2})$ with a large
-lower-order term produces exactly this.
-
 What remains is $(\star3)$, and establishing the antecedent leaves its
 difficulty exactly where it was. The asymmetry is the one recorded in
-\S\ref{sec:chain}: an implication whose hypothesis never sees $a$
-cannot on its own produce a bound uniform in $a$, and neither bridge
-the source offers from $(\star4)$ toward $(\star3)$ is uniform in
-growing resolution. Wirsching's own analytic route of two years
+\S\ref{sec:chain}, and it has two parts. An implication whose
+hypothesis never sees $a$ cannot on its own produce a bound uniform in
+$a$; and $(\star3)$ asks for more than $(\star1)$ and $(\star2)$ do,
+since its index $\ell_0$ is quantified before $a$ and so must serve
+every unit at once, where theirs sits inside a $\liminf$ and may vary
+with $a$. Neither bridge the source offers from $(\star4)$ toward
+$(\star3)$ is uniform in growing resolution. Wirsching's own analytic route of two years
 earlier, described in \S\ref{sec:related}, ran into the same
 analytic-to-combinatorial gap.
 
@@ -2112,8 +2149,8 @@ theorem needs it.
 
 Every computation this paper reports is backed by a script in one
 repository, \url{https://github.com/faculdade/wirsching-conjectures-1-and-3},
-archived at \texttt{doi:10.5281/zenodo.22116226}, release \texttt{v1.0.0},
-commit \texttt{40e378f}. That is the version DOI, which is fixed to this
+archived at \texttt{doi:10.5281/zenodo.22116346}, release \texttt{v1.0.1},
+commit \texttt{c0339d1}. That is the version DOI, which is fixed to this
 exact snapshot; the concept DOI
 \texttt{doi:10.5281/zenodo.22116225} always resolves to the latest
 version and is not what a reader reproducing this paper wants. The
@@ -2140,11 +2177,10 @@ $\operatorname{Re}s=1$, with no computation.
 Everything else is exact integer or rational arithmetic, or
 high-precision floating arithmetic through mpmath. Where a script
 claims an inequality it asserts it and exits non-zero on failure. The
-evaluation of $\varphi$ through depth $\ell=500$ has zero truncation
-error at every point reported, the moments being exact rationals from
-the self-similarity $X\overset{d}{=}(2U+X)/3$; its working precision is
-$100$ digits, so the printed decimals are a floating evaluation of an
-exact quantity.
+repository also carries the numerical work that preceded
+Theorem~\ref{thm:conj3}, including an evaluation of $\varphi$ through
+depth $\ell=500$ with zero truncation error at every point tested. No
+claim in this paper rests on it, and its folder says so.
 
 Two earlier repositories preceded this one and remain where they are,
 with their DOIs valid:
@@ -2154,17 +2190,8 @@ archived at \texttt{doi:10.5281/zenodo.21854549}, commit
 \url{https://github.com/faculdade/collatz-wirsching-2003}, for the
 unsubmitted manuscript that carried Conjecture~1. Their scripts are
 carried into the repository above, renumbered to this paper's sections.
-The first numbers its results as they were first published, where
-Theorem~\ref{thm:conj3} is Theorem~1,
-Theorem~\ref{thm:unrestricted} is Theorem~2,
-Corollary~\ref{cor:bk} is Corollary~3, Theorem~\ref{thm:H} is
-Theorem~4, Proposition~\ref{prop:Hfourier} is Proposition~6,
-Proposition~\ref{prop:Hcert} is Proposition~8,
-Theorem~\ref{thm:formulaA} is Theorem~13, Lemma~\ref{lem:saddles} is
-Lemma~16, Proposition~\ref{prop:envelope} is Proposition~17,
-Proposition~\ref{prop:bkidentity} is Proposition~18 and
-Proposition~\ref{prop:wirschingreq} is Proposition~20; that mapping is
-repeated in the new repository's own README.
+The first numbers its results as they were first published; the new
+repository's README carries the mapping between the two numberings.
 
 \subsection*{Relation to earlier versions of this work}
 
@@ -2177,14 +2204,16 @@ Berg--Kr\"uppel's density asymptotic}. The present paper supersedes
 both. \S\ref{sec:chain-closed} is new here and appears in neither.
 
 
-\section*{Declaration of Generative AI and AI-assisted technologies in
-the writing process}
+\section*{Declaration of Generative AI and AI-assisted technologies}
 
-The author conducted all research and wrote the manuscript. During the
-preparation of this work, the author used Claude (Anthropic) for
-textual review and translation. After using this tool, the author
-reviewed and edited the content as necessary and takes full
-responsibility for the content of the publication.
+During the preparation of this work the author used Claude (Anthropic)
+and Codex (OpenAI) as research assistants: for literature search, for
+developing and auditing the accompanying code, for adversarial review
+of the arguments, and for drafting and revising prose. All
+source-dependent claims were checked by the author against primary
+sources. The author independently reviewed all mathematical arguments
+and computational outputs and takes full responsibility for the
+content.
 
 \bibliographystyle{plain}
 \begin{thebibliography}{99}
@@ -2230,7 +2259,7 @@ responsibility for the content of the publication.
   Acta Arithmetica \textbf{55} (1990), no.\ 3, 241--248.
 
 \bibitem{Liu2025} C.\ Liu, \emph{Counting the Collatz numbers}, preprint,
-  arXiv:2512.13760 [math.GM], 2025.
+  arXiv:2512.13760v2 [math.GM], 2025, doi:10.48550/arXiv.2512.13760.
 
 \bibitem{Mazur2026} L.\ Mazur, \emph{Certified $x^{0.90}$ lower bounds
   for Collatz predecessor sets}, preprint, 2026, formalized in Lean;
@@ -2320,15 +2349,13 @@ partition functions}, J. Austral. Math. Soc. Ser.~A \textbf{21} (1976), 447--456
 T.~Kato and J.~B. McLeod, \emph{The functional-differential equation $y'(x) = ay(\lambda x) +
 by(x)$}, Bull. Amer. Math. Soc. \textbf{77} (1971), no.~6, 891--937.
 
-\bibitem{Derfel1995}
-G.~Derfel, \emph{Functional-differential and functional equations with rescaling}, in Operator
-Theory: Advances and Applications, vol.~80, Birkh\"auser, Basel, 1995, 100--111.
+\bibitem{Hadamard1896}
+J.~Hadamard, \emph{Sur la distribution des z\'eros de la fonction $\zeta(s)$ et ses cons\'equences
+arithm\'etiques}, Bull. Soc. Math. France \textbf{24} (1896), 199--220.
 
-\bibitem{Titchmarsh1986}
-E.~C. Titchmarsh, \emph{The Theory of the Riemann Zeta-Function}, 2nd ed., revised by D.~R.
-Heath-Brown, Oxford University Press, 1986, Chapter III, \S3.1--3.3 (the non-vanishing of $\zeta$
-on $\operatorname{Re}s=1$; not the quantitative zero-free region of Theorem 3.8, a stronger and
-unnecessary statement here).
+\bibitem{ValleePoussin1896}
+C.-J. de la Vall\'ee Poussin, \emph{Recherches analytiques sur la th\'eorie des nombres
+premiers}, Ann. Soc. Sci. Bruxelles \textbf{20}B (1896), 183--256, 281--352, 363--397.
 
 \bibitem{Dumas2008}
 P.~Dumas, \emph{Mean asymptotic behaviour of radix-rational sequences and dilation equations},

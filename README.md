@@ -43,7 +43,7 @@ Sections 1, 2, 3 and 5 carry no computation.
 | `section-09-berg-kruppel-identity/` | 9, the Berg-Kruppel identity | Proposition 9.1 and the closed-form constant `C_P` |
 | `section-10-conjecture-3/` | 10, Conjecture 3 | numerical evidence for Theorem 10.1 along Wirsching's own sequence |
 | `section-11-condition-star4/` | 11, the chain closed to a single condition | the two steps the source states rather than carries out, `mu = 1/3`, and the residual in Remark 11.3 |
-| `section-12-numerics/` | 12, Discussion | the evaluation of `phi` to depth 500 and the concordance with the proved limit |
+| `section-12-numerics/` | 12, Discussion | the derivation of `e^{H(0)}` and its cross-check against section 6's certified enclosure; also the depth-500 evaluation of `phi`, which preceded the theorem and which the current paper no longer quotes (see that folder's README) |
 | `paper/` | | the paper itself, source and PDF |
 
 Each folder has its own README saying what its scripts verify, how to
