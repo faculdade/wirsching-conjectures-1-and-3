@@ -7,7 +7,9 @@ Archived on Zenodo. **Cite the version DOI**, not the concept one:
 
 | | DOI | resolves to |
 |---|---|---|
-| `v1.0.0` | [10.5281/zenodo.22116226](https://doi.org/10.5281/zenodo.22116226) | this exact snapshot, commit `40e378f` |
+| `v1.0.2` | minted at release, recorded in the paper | this exact snapshot |
+| `v1.0.1` | [10.5281/zenodo.22116346](https://doi.org/10.5281/zenodo.22116346) | commit `c0339d1` |
+| `v1.0.0` | [10.5281/zenodo.22116226](https://doi.org/10.5281/zenodo.22116226) | commit `40e378f` |
 | all versions | [10.5281/zenodo.22116225](https://doi.org/10.5281/zenodo.22116225) | whatever the latest release is |
 
 The paper cites the version DOI, because a reader reproducing a printed
