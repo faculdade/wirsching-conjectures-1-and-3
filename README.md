@@ -3,6 +3,23 @@
 Code for R. A. Tavares, *Wirsching's 2003 Conjectures on Positive
 Predecessor Density: Conjectures 1 and 3 Proved*.
 
+Archived on Zenodo. **Cite the version DOI**, not the concept one:
+
+| | DOI | resolves to |
+|---|---|---|
+| `v1.0.0` | [10.5281/zenodo.22116226](https://doi.org/10.5281/zenodo.22116226) | this exact snapshot, commit `40e378f` |
+| all versions | [10.5281/zenodo.22116225](https://doi.org/10.5281/zenodo.22116225) | whatever the latest release is |
+
+The paper cites the version DOI, because a reader reproducing a printed
+number needs the code that produced it, not the newest code. Each new
+release mints a new version DOI and leaves the older archives untouched;
+the concept DOI never changes.
+
+`paper/` carries the paper as it stood at the release that archived it.
+It can lag the paper of record by one revision, and does whenever the
+paper is corrected after a release: adding this DOI to the paper was
+itself such a correction. The paper of record is the preprint.
+
 The paper proves two of the three conjectures G. J. Wirsching left open
 in *On the problem of positive predecessor density in 3n+1 dynamics*,
 Discrete Contin. Dyn. Syst. 9(3) (2003), 771-787,
