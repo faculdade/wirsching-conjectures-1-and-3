@@ -116,6 +116,7 @@ def main():
 
     certify_derivative_bounds(c, alpha, q, A)
     certify_oscillation(c, alpha)
+    certify_H0(c, alpha, q, A, C)
 
 
 def certify_derivative_bounds(c, alpha, q, A):
@@ -239,6 +240,66 @@ def certify_oscillation(c, alpha):
     print(f"\nCertified two-sided enclosure: osc(H) in [{osc_lo}, {osc_hi}]")
     print("  (paper's Proposition 8 quotes")
     print("   [4.1874494771e-4, 4.187981e-4])")
+
+
+def certify_H0(c, alpha, q, A, C):
+    """Certify H(0) itself, and hence the constant e^{H(0)} of the paper's
+    theorem on Conjecture 3.
+
+    H(0) = Hhat(0) + 2*sum_{m>=1} Re Hhat(m).  The zero mode has the closed
+    form of the paper's proposition on the Fourier expansion,
+
+        Hhat(0) = log(2)/2 - log(2)^2/(2c) - c/12 - A_0/c,
+        A_0     = pi^2/12 - gamma_E^2/2 - gamma_1,
+
+    with gamma_E the Euler-Mascheroni constant and gamma_1 the first Stieltjes
+    constant; Arb supplies rigorous enclosures of both.  The nonzero modes are
+    the same hhat(m) used everywhere else in this file, and the tail beyond
+    m = M is bounded by TWICE the same majorant sum_{m>M}|Hhat(m)| that the
+    oscillation and derivative certificates use, since |2 Re z| <= 2|z|.
+
+    Nothing here is new machinery: only the zero mode is added to parts
+    already certified above."""
+    M = 12
+    gamma_E = arb.const_euler()
+    gamma_1 = acb.stieltjes(1).real
+    A0 = arb.pi() ** 2 / 12 - gamma_E**2 / 2 - gamma_1
+    hhat0 = arb(2).log() / 2 - arb(2).log() ** 2 / (2 * c) - c / 12 - A0 / c
+
+    finite = arb(0)
+    for m in range(1, M + 1):
+        finite += 2 * hhat(m, c, alpha).real
+
+    n = arb(M + 1)
+    f_n = ((alpha * n + 1).log() + C) / n.sqrt()
+    positive_tail = A * f_n * q**n / (1 - q)
+    tail_radius = 2 * positive_tail.upper()
+
+    H0 = hhat0 + finite + arb(0, tail_radius)
+    expH0 = H0.exp()
+
+    print("")
+    print("Certified H(0) and e^{H(0)}")
+    print(f"  gamma_E   = {gamma_E}")
+    print(f"  gamma_1   = {gamma_1}")
+    print(f"  Hhat(0)   = {hhat0}")
+    print(f"  2*sum_(1<=m<={M}) Re Hhat(m) = {finite}")
+    print(f"  |2*sum_(m>{M}) Re Hhat(m)| <= {tail_radius}")
+    print(f"  H(0)      = {H0}")
+    print(f"  e^(H(0))  = {expH0}")
+
+    # The enclosures quoted in the paper, deliberately wider than computed.
+    lo_H, hi_H = arb("-0.62713093305153"), arb("-0.62713093305152")
+    lo_e, hi_e = arb("0.53412203666478"), arb("0.53412203666479")
+    if not (H0.lower() > lo_H and H0.upper() < hi_H):
+        raise AssertionError(f"H(0) enclosure not inside the quoted interval: {H0}")
+    if not (expH0.lower() > lo_e and expH0.upper() < hi_e):
+        raise AssertionError(f"e^(H(0)) not inside the quoted interval: {expH0}")
+    print("")
+    print("Therefore")
+    print("  -0.62713093305153 < H(0) < -0.62713093305152,")
+    print("  0.53412203666478 < e^(H(0)) < 0.53412203666479,")
+    print("which are the enclosures the paper quotes.")
 
 
 if __name__ == "__main__":

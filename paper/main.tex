@@ -76,7 +76,7 @@ coefficients in closed form in $\Gamma$ and $\zeta$; a classical
 zero-free theorem for $\zeta$ shows it is not constant, and we enclose
 its oscillation rigorously. Wirsching's comparison class fixes one
 phase of $H$, and there Conjecture~3 holds with limit $e^{H(0)}$,
-numerically $0.534122\ldots$. Off that class the phase sweeps a full
+certified to lie in $(0.53412203666478,0.53412203666479)$. Off that class the phase sweeps a full
 period, so the unrestricted asymptotic
 $\varphi(t)\sim\kappa\varphi_0(t)$ fails. Condition $(\star4)$ follows, at every window radius, with $\mu=1/3$:
 what Wirsching's argument needs is weaker than Conjecture~3 itself, and
@@ -290,6 +290,18 @@ natural to it reaches, and where the argument developed here stops.
 
 \section{Wirsching's chain, from the primary source}
 \label{sec:chain}
+
+Every section, equation and result reference to \cite{Wirsching2003} in
+what follows is to the published article, and each was checked against
+it.\footnote{The numbering agrees throughout with the author's
+preliminary version, circulated as \emph{On positive predecessor density
+in $3n+1$ dynamics} (Katholische Universit\"at Eichst\"att), which we
+also read. Sections~1 to~7 of the published article begin on pp.~773,
+776, 778, 780, 780, 783 and~784; Definition~1 is on p.~772, Theorem~1 on
+p.~775, Conjecture~1 on p.~778, Theorem~2 on p.~780, Theorem~3 on
+p.~781, Theorem~6 and Corollaries~7 and~8 on p.~783, Conjecture~2 on
+p.~784 and Conjecture~3 on p.~787. The item-by-item concordance is in the repository of the Data
+Availability Statement.}
 
 Wirsching's central combinatorial objects are the ``Elka'' functions
 $e_\ell(k,a):=|E_{\ell,k}(a)|$, on domain
@@ -533,10 +545,12 @@ something the source prints:
  \frac{g_\ell(k_\ell,a)}{\bar g_\ell(k_\ell)}\ \ge\ \mu_1-\varepsilon .
 \]
 The stated uniformity is over sequences, so the eventual index
-$\ell_0$ may depend on $a$; the constant $\mu_1$ may not. Below,
-$a$ is fixed and only $\ell_0$ is permitted to depend on it: the
-argument carries the same $\mu_1$ from the generators to the Elka
-functions, for every $a$.
+$\ell_0$ may depend on $a$; the constant $\mu_1$ may not. Nothing in
+\S\ref{sec:conj1} turns on this: Theorem~\ref{thm:wirsching-conj1} is
+stated at a fixed $a$ and carries the same $\mu_1$ from the generators
+to the Elka functions there, so it holds under either reading, and the
+discussion above only says which reading makes the chain deliver
+Wirsching's Theorem~1.
 
 \begin{lemma}[Window form of the hypothesis]\label{lem:window-form}
 Suppose $(\star2)$ holds with radius $\delta_1$ and constant $\mu_1$.
@@ -649,10 +663,19 @@ a geometric one with ratio $6/7<1$, and
 \end{proof}
 
 \begin{theorem}[Wirsching's Conjecture~1]\label{thm:wirsching-conj1}
-In the notation of \S\ref{sec:chain}, condition $(\star2)$, with window
-radius $\delta_1$ (Wirsching's own naming, \cite[\S2]{Wirsching2003}),
-implies condition $(\star1)$ with some possibly
-smaller window radius $\delta<\delta_1$.
+In the notation of \S\ref{sec:chain}, fix $a\in\mathbb Z_3^\times$. If
+$(\star2)$ holds at $a$ with window radius $\delta_1$ (Wirsching's own
+naming, \cite[\S2]{Wirsching2003}) and constant $\mu_1$, then
+$(\star1)$ holds at $a$ with the same constant $\mu_1$ and some smaller
+radius $\delta<\delta_1$, which may be taken to be $\delta_1/3$ and
+depends on $\delta_1$ alone.
+
+In particular the implication holds under either reading of the
+quantifier on $a$: if $\delta_1$ and $\mu_1$ in $(\star2)$ are global in
+$a$, so are $\delta$ and $\mu_1$ in $(\star1)$; and if they are allowed
+to depend on $a$, the implication still holds at each $a$ separately.
+Under the global reading, which is the one Wirsching's Definition~1
+requires, this is exactly Conjecture~1.
 \end{theorem}
 
 \begin{proof}
@@ -1078,6 +1101,13 @@ a certified bound on the remaining modes gives a matching upper bound, the two g
 \[
 4.1874494771\times10^{-4} \;\le\; \operatorname{osc}(H) \;\le\; 4.187981\times10^{-4}.
 \]
+The same certificate encloses the constant of Theorem~\ref{thm:conj3}:
+\[
+ -0.62713093305153 \;<\; H(0) \;<\; -0.62713093305152,
+\]
+\[
+ 0.53412203666478 \;<\; e^{H(0)} \;<\; 0.53412203666479 .
+\]
 \end{proposition}
 
 \begin{proof}
@@ -1322,9 +1352,9 @@ h(y) = h(0)+h'(0)y+h''(0)\tfrac{y^2}{2} + \tfrac12\int_0^y (y-u)^2 h'''(u)\,du.
 \]
 Consequently, writing $h_j(u) := g(b_j(1+iu))$ for each $j\ge1$, for $\theta\in(0,1]$,
 \[
-S := \sum_j \sup_{|u|\le \theta}|h_j'''(u)| \le 2N + 10.559,
+S := \sum_j \sup_{|u|\le \theta}|h_j'''(u)| \le 2N + 10.6,
 \]
-and hence $|\Lambda(y) + Vy^2/2| \le B|y|^3$ for $|y|\le \theta$, with $B := S/6 \le (2N+10.559)/6$.
+and hence $|\Lambda(y) + Vy^2/2| \le B|y|^3$ for $|y|\le \theta$, with $B := S/6 \le (2N+10.6)/6$.
 \end{lemma}
 
 \begin{proof}
@@ -1340,10 +1370,17 @@ since $|u|\le\theta\le1$:
 |h_j'''(u)| \le |\kappa_3(w_j)| \le 2 + 2^{5/2} f(b_j/2) \le 2 + 2^{5/2} f(3^m/2),
 \]
 the last step by monotonicity of $f$ and $\rho\ge1$. Summing over $m\ge0$ bounds this block by
-$2N + 2^{5/2}\Sigma$, $\Sigma := \sum_{m\ge0} f(3^m/2)$. The first three terms of $\Sigma$ are
-$0.99614738\ldots$, $0.82241066\ldots$, $0.04500508\ldots$; for $r\ge13$ one has $f(r) \le
-4.001\,r^3e^{-2r}$, so the remaining terms sum to less than $2\times10^{-8}$, and $2^{5/2}\Sigma <
-10.541906$.
+$2N + 2^{5/2}\Sigma$, $\Sigma := \sum_{m\ge0} f(3^m/2)$, and we bound $\Sigma$ by elementary
+upper estimates of its terms rather than by a computation. Writing $\sinh r =
+\tfrac12e^r(1-e^{-2r})$ and $\cosh r = \tfrac12e^r(1+e^{-2r})$ turns $f$ into
+\begin{equation}\label{eq:fexact}
+ f(r) = 4r^3e^{-2r}\,\frac{1+e^{-2r}}{(1-e^{-2r})^3},
+\end{equation}
+whose last factor is below $1.00025$ for $r\ge5$, so $f(r)\le4.001\,r^3e^{-2r}$ there. The first
+three terms of $\Sigma$ satisfy $f(1/2)<0.997$, $f(3/2)<0.823$ and $f(9/2)<0.046$, each a direct
+evaluation of two hyperbolic functions with room to spare, and \eqref{eq:fexact} bounds the rest,
+where $3^m/2\ge13.5$, by $4.001\sum_{m\ge3}(3^m/2)^3e^{-3^m} < 2\times10^{-8}$. The three head
+bounds sum to exactly $1.866$, so $\Sigma < 1.86600002$ and $2^{5/2}\Sigma < 10.5557$.
 
 For the remaining indices $b_j = \rho 3^{-n}$, $n\ge1$, one has $b_j<1$ and $|w_j| =
 b_j\sqrt{1+u^2} \le b_j\sqrt2 < 2$, so Lemma~\ref{lem:kappa}'s local bound applies and, keeping
@@ -1353,7 +1390,7 @@ the denominator this time,
 0.0119\sqrt2\,b_j^4 .
 \]
 Summing, $\sum_{n\ge1}(\rho3^{-n})^4 = \rho^4/80 < 81/80$, so this block is below
-$0.0119\sqrt2\cdot81/80 < 0.01704$. Together, $S < 2N + 10.541906 + 0.01704 < 2N + 10.559$.
+$0.0119\sqrt2\cdot81/80 < 0.01704$. Together, $S < 2N + 10.5557 + 0.01704 < 2N + 10.6$.
 
 For the remainder bound, $\sum_j h_j(y) = K(s(1+iy))$, $\sum_j h_j'(0) = isK'(s) = -is\,t(s)$ and
 $\sum_j h_j''(0) = -s^2K''(s) = -V$, so summing the integral-form Taylor expansion over $j$ gives
@@ -1367,7 +1404,7 @@ whose modulus is at most $S|y|^3/6 = B|y|^3$ for $|y|\le\theta$.
 \label{thm:formulaA}
 For $N\ge19$, uniformly over $\rho\in[1,3)$, $|R(s)-1|\le E(N) := e_1(N)+e_2(N)+e_3(N)$, with
 $\theta_N := N^{-1/3}$, $V_{\mathrm{lo}} := N-A_V$, $V_{\mathrm{up}} := N+0.1283$,
-$B := (2N+10.559)/6$,
+$B := (2N+10.6)/6$,
 \begin{align}
 e_1(N) &:= \frac{4\,e^{B\theta_N^3}\,B}{\sqrt{2\pi}\,V_{\mathrm{lo}}^{3/2}}, \qquad
 e_2(N) := \frac{2}{\sqrt{2\pi}}\cdot\frac{e^{-\theta_N^2V_{\mathrm{lo}}/2}}{\theta_N\sqrt{V_{\mathrm{lo}}}},
@@ -1383,12 +1420,9 @@ on the sequence of $t$'s.
 
 \begin{remark}
 The estimate $|R(s)-1|\le E(N)$ becomes informative once $E(N)<1$, which holds at $N=19$ (see the
-proof: $E(18)=1.00170\ldots\ge1$, $E(19)=0.95673\ldots<1$); this is the threshold kept as the
+proof: $E(18)=1.0020653\ldots\ge1$, $E(19)=0.9570558\ldots<1$); this is the threshold kept as the
 theorem's hypothesis (whether some smaller $N$ also gives $E(N)<1$ is immaterial to what follows and
-is not checked). $E$ is also strictly decreasing and satisfies $E(N)\le4.18\,N^{-1/2}$ throughout
-$19\le N\le5000$
-(checked directly in the accompanying repository), though only $E(N)\to0$ as $N\to\infty$ is used
-below.
+is not checked). Only $E(N)\to0$ as $N\to\infty$ is used below.
 \end{remark}
 
 \begin{proof}
@@ -1423,7 +1457,7 @@ is a supremum over $b>0$; or a sum over one complete geometric orbit bounded usi
 a bound at the other endpoint, $\rho\to3^-$, which is where $V_{\mathrm{up}}$'s $0.1283$ and $B$'s
 $0.01704$ come from. Uniformity in $\rho$ is the theorem's whole content, so it is worth saying
 which constant is which rather than covering all of them with one clause. Directly evaluating
-\eqref{eq:Ebound} gives $E(18) = 1.00170\ldots \ge 1$ and $E(19) = 0.95673\ldots < 1$, matching the
+\eqref{eq:Ebound} gives $E(18) = 1.0020653\ldots \ge 1$ and $E(19) = 0.9570558\ldots < 1$, matching the
 remark above.
 
 For the asymptotic rate, $e_1$, $e_2$, $e_3$ separate on very different scales as $N\to\infty$.
@@ -1761,10 +1795,12 @@ stronger one fails.
 Wirsching's Conjecture~3 is true. For each $\delta_5>0$, on his comparison
 class $\widetilde{A}_{\delta_5}$, the ratio
 $\varphi(z_\ell)/\varphi_0(z_\ell)$ converges uniformly to $e^{H(0)}$, a well-defined real number by
-Theorem~\ref{thm:H} regardless of its decimal expansion, evaluated here as $e^{H(0)} =
-0.534122\ldots$ (a floating-point evaluation; Proposition~\ref{prop:Hcert}'s proof certifies the
-nearby difference $H(0)-H(\log\tfrac32)$ rigorously, but not $H(0)$ itself in isolation), where $H$
-is the
+Theorem~\ref{thm:H} regardless of its decimal expansion, and certified in
+Proposition~\ref{prop:Hcert} to lie in
+\[
+ 0.53412203666478 \;<\; e^{H(0)} \;<\; 0.53412203666479 ,
+\]
+where $H$ is the
 periodic function of Theorem~\ref{thm:H} and the normalization of $\varphi_0$ is Berg and
 Kr\"uppel's own, equation~(9.6) of \cite{BergKruppel1998}, written out at
 \eqref{eq:phi0}. Conjecture~3 itself only asserts the
@@ -2200,19 +2236,23 @@ give a polynomial rate throughout; neither theorem needs it.
 Every computation this paper reports is backed by a script in one
 repository, \url{https://github.com/faculdade/wirsching-conjectures-1-and-3},
 archived on Zenodo at \texttt{doi:10.5281/zenodo.22116225}, release
-\texttt{v1.0.3}, whose snapshot carries this paper, its source and the
+\texttt{v1.0.4}, whose snapshot carries this paper, its source and the
 scripts together in the state in which it was submitted. Zenodo's
 landing page for that DOI lists every release with the DOI it assigned
 to each. The repository is organized as one folder per section of
 this paper that carries computation, numbered as this paper numbers
 them, with a README per folder stating what its scripts verify and how
 to run them. Sections \ref{sec:intro}, \ref{sec:related},
-\ref{sec:chain} and \ref{sec:prelim} carry no computation.
+\ref{sec:chain} and \ref{sec:prelim} carry no computation. The
+repository also holds \texttt{SOURCE\_CONCORDANCE.md}, recording
+item by item the agreement between the published 2003 article and the
+preliminary version, across the thirty-four locators this paper uses:
+seven sections, ten named results and seventeen numbered equations.
 
-Two kinds of claim here are computer-assisted, and both are in the
-folder for \S\ref{sec:periodic}: the enclosure of $\operatorname{osc}(H)$
-in Proposition~\ref{prop:Hcert} and the derivative bounds
-\eqref{eq:Hbounds}. These use Arb ball arithmetic through python-flint
+Three claims here are computer-assisted, and all three are in the folder
+for \S\ref{sec:periodic}: the enclosure of $\operatorname{osc}(H)$ and
+that of $H(0)$ in Proposition~\ref{prop:Hcert}, and the derivative
+bounds \eqref{eq:Hbounds}. These use Arb ball arithmetic through python-flint
 at a working precision stated at the top of the script, higher than the
 $250$-bit precision quoted inline in Proposition~\ref{prop:Hcert}'s
 proof, so they are an independent higher-precision reproduction of that
@@ -2331,17 +2371,25 @@ $\Lambda:=\min(3x,1-c_\ell)$, if $3x\le1-c_\ell$ then
 $\Lambda=3x>\lambda$, and otherwise $\Lambda=1-c_\ell>3x-c_\ell$ and
 $\Lambda>0$.
 
-(c) The decomposition $X=\tfrac23U_1+\tfrac13X'$ gives
+(c) Two preliminaries. First, replacing each $U_j$ by $1-U_j$ sends $X$
+to $1-X$, so $X$ is symmetric about $\tfrac12$ and
+$F_\varphi(s)=1-F_\varphi(1-s)$. Second, $X$ charges every subinterval
+of $(0,1)$ in the following sense: $0<F_\varphi(s)<1$ for $0<s<1$.
+Indeed, given such an $s$, choose $N$ with
+$\sum_{j>N}2\cdot3^{-j}=3^{-N}<s/2$. On the event that $U_j<s/2$ for
+every $j\le N$, of probability $(s/2)^N>0$, the head satisfies
+$\sum_{j\le N}2U_j3^{-j}<s\sum_{j\ge1}3^{-j}=s/2$, so $X<s$ and
+$F_\varphi(s)\ge\Pr(X<s)>0$; and $\Pr(X>s)=\Pr(X<1-s)>0$ by the
+symmetry, so $F_\varphi(s)<1$.
+
+Now the decomposition $X=\tfrac23U_1+\tfrac13X'$ gives
 $\varphi(v)=\tfrac32\bigl(F_\varphi(3v)-F_\varphi(3v-2)\bigr)\le\tfrac32$,
 and for $0<v<\tfrac13$ it gives $\varphi(v)=\tfrac32F_\varphi(3v)
-<\tfrac32$, since $3v<1$ and $\varphi>0$ on $(0,1)$. Hence
-$F_\varphi(s)=\int_0^s\varphi<\tfrac32s$ for every $s>0$, and
-$F_\varphi(s)<1$ for $s<1$, which together are the first inequality in
-(c). For the second, replacing each $U_j$ by $1-U_j$ sends $X$ to
-$1-X$, so $\varphi$ is symmetric about $\tfrac12$ and
-$F_\varphi(s)=1-F_\varphi(1-s)$. For $s\in(0,1)$ this gives
-$F_\varphi(s)>1-\tfrac32(1-s)=\tfrac32\bigl(s-\tfrac13\bigr)$, and
-$F_\varphi(s)>0$ holds outright.
+<\tfrac32$, since $3v<1$. Hence $F_\varphi(s)=\int_0^s\varphi<\tfrac32s$
+for every $s>0$, and $F_\varphi(s)<1$ for $s<1$, which together are the
+first inequality in (c). For the second, the symmetry gives
+$F_\varphi(s)=1-F_\varphi(1-s)>1-\tfrac32(1-s)=\tfrac32\bigl(s-\tfrac13\bigr)$
+for $s\in(0,1)$, and $F_\varphi(s)>0$ was just shown.
 \end{proof}
 
 \begin{lemma}[Layer-cake comparison]\label{lem:layercake}
@@ -2443,14 +2491,11 @@ and $\log L$ pieces cancel against $L$ and $\log L$ above, leaving
  \;=\;\log\tfrac92 ,
 \end{equation}
 the last equality by substituting $\gamma=-2\beta-\delta_{\mathrm{BK}}
--\tfrac12$ and $\beta=1/(2c)$; the two sides agree to every one of $120$
-computed digits. At $\lambda=2/3$, $a=3$ this is exactly (7.12). The
+-\tfrac12$ and $\beta=1/(2c)$. At $\lambda=2/3$, $a=3$ this is exactly
+(7.12). The
 limit depends on $t$ only through $L$, so it is uniform over any family
 of $t$ with $-\log t\to\infty$ uniformly, which is what
-$\widetilde A_{\delta_5}$ supplies. As a check, evaluating the left side
-of \eqref{eq:w712} numerically from \eqref{eq:phi0} at
-$t=\ell\,3^{-\ell}$ gives $1.50373$, $1.5040772$ and $1.504077393$ at
-$\ell=10^2,10^4,10^5$, against $\log\tfrac92=1.504077397\ldots$.
+$\widetilde A_{\delta_5}$ supplies.
 
 \emph{(7.13)}, introduced with ``a somewhat lengthy calculation shows'',
 follows from \eqref{eq:phi0} by differentiation. With $v=\log t$,
@@ -2490,16 +2535,7 @@ does not already have, and none changes $\mu=1/3$.
 \bibitem{Wirsching2003} G.\ J.\ Wirsching, \emph{On the problem of
   positive predecessor density in $3n+1$ dynamics}, Discrete and
   Continuous Dynamical Systems \textbf{9} (2003), no.\ 3, 771--787,
-  DOI: 10.3934/dcds.2003.9.771. Every section, equation and result
-  reference to this work above is to the published article, and each was
-  checked against it: the numbering agrees throughout with the author's
-  preliminary version, circulated as \emph{On positive predecessor
-  density in $3n+1$ dynamics} (Katholische Universit\"at Eichst\"att),
-  which we also read. Sections~1 to~7 begin on pp.~773, 776, 778, 780,
-  780, 783 and~784; Definition~1 is on p.~772, Theorem~1 on p.~775,
-  Conjecture~1 on p.~778, Theorem~2 on p.~780, Theorem~6 and
-  Corollaries~7 and~8 on p.~783, Conjecture~2 on p.~784 and
-  Conjecture~3 on p.~787.
+  DOI: 10.3934/dcds.2003.9.771.
 
 \bibitem{Fabius1966} J.\ Fabius, \emph{A probabilistic example of a
   nowhere analytic $C^\infty$-function}, Z.\ Wahrscheinlichkeitstheorie
