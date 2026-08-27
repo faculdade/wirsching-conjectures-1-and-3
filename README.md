@@ -7,20 +7,21 @@ Archived on Zenodo. **Cite the version DOI**, not the concept one:
 
 | | DOI | resolves to |
 |---|---|---|
+| `v1.0.3` | the DOI Zenodo minted for this release; see the concept DOI's landing page | this exact snapshot, the one the paper cites |
 | `v1.0.2` | [10.5281/zenodo.22119157](https://doi.org/10.5281/zenodo.22119157) | commit `0248f42` |
 | `v1.0.1` | [10.5281/zenodo.22116346](https://doi.org/10.5281/zenodo.22116346) | commit `c0339d1` |
 | `v1.0.0` | [10.5281/zenodo.22116226](https://doi.org/10.5281/zenodo.22116226) | commit `40e378f` |
 | all versions | [10.5281/zenodo.22116225](https://doi.org/10.5281/zenodo.22116225) | whatever the latest release is |
 
-The paper cites the version DOI, because a reader reproducing a printed
-number needs the code that produced it, not the newest code. Each new
-release mints a new version DOI and leaves the older archives untouched;
-the concept DOI never changes.
+The paper cites the concept DOI together with the release tag `v1.0.3`.
+Both are fixed before the release exists, which is what lets the
+archived snapshot carry the submitted paper itself: same TeX, same PDF,
+same code, one commit. Each release mints its own version DOI and leaves
+the older archives untouched; the concept DOI never changes and its
+Zenodo landing page lists every version with the DOI assigned to it.
 
 `paper/` carries the paper as it stood at the release that archived it.
-It can lag the paper of record by one revision, and does whenever the
-paper is corrected after a release: adding this DOI to the paper was
-itself such a correction. The paper of record is the preprint.
+For `v1.0.3` that is the submitted manuscript exactly.
 
 The paper proves two of the three conjectures G. J. Wirsching left open
 in *On the problem of positive predecessor density in 3n+1 dynamics*,
