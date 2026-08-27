@@ -3,11 +3,14 @@
 Code for R. A. Tavares, *Wirsching's Positive-Predecessor-Density
 Program: Proofs of Conjectures 1 and 3*.
 
-Archived on Zenodo. **Cite the version DOI**, not the concept one:
+Archived on Zenodo. The paper cites the concept DOI together with the
+release tag, for the reason below; to cite one exact snapshot on its
+own, use that release's version DOI:
 
 | | DOI | resolves to |
 |---|---|---|
-| `v1.0.5` | the DOI Zenodo mints for this release; see the concept DOI's landing page | this exact snapshot, the one the paper cites |
+| `v1.0.6` | the DOI Zenodo mints for this release; see the concept DOI's landing page | this exact snapshot, the one the paper cites |
+| `v1.0.5` | [10.5281/zenodo.22129497](https://doi.org/10.5281/zenodo.22129497) | commit `2701970` |
 | `v1.0.4` | [10.5281/zenodo.22128300](https://doi.org/10.5281/zenodo.22128300) | commit `8b2ebc7` |
 | `v1.0.3` | [10.5281/zenodo.22126942](https://doi.org/10.5281/zenodo.22126942) | commit `9f8b32d` |
 | `v1.0.2` | [10.5281/zenodo.22119157](https://doi.org/10.5281/zenodo.22119157) | commit `0248f42` |
@@ -15,7 +18,7 @@ Archived on Zenodo. **Cite the version DOI**, not the concept one:
 | `v1.0.0` | [10.5281/zenodo.22116226](https://doi.org/10.5281/zenodo.22116226) | commit `40e378f` |
 | all versions | [10.5281/zenodo.22116225](https://doi.org/10.5281/zenodo.22116225) | whatever the latest release is |
 
-The paper cites the concept DOI together with the release tag `v1.0.5`.
+The paper cites the concept DOI together with the release tag `v1.0.6`.
 Both are fixed before the release exists, which is what lets the
 archived snapshot carry the submitted paper itself: same TeX, same PDF,
 same code, one commit. Each release mints its own version DOI and leaves
@@ -23,7 +26,18 @@ the older archives untouched; the concept DOI never changes and its
 Zenodo landing page lists every version with the DOI assigned to it.
 
 `paper/` carries the paper as it stood at the release that archived it.
-For `v1.0.5` that is the submitted manuscript exactly.
+For `v1.0.6` that is the submitted manuscript exactly.
+
+One note on this file and the per-folder READMEs. They are documentation
+and are corrected on the default branch when something in them is found
+to be wrong or incomplete, without cutting a release: a release exists to
+pin the code and the paper, and re-cutting one to fix a sentence would
+only make the manuscript's own release tag stale. Any such correction is
+recorded in the git history and changes no code, no proof and no
+certified number. The most recent such corrections were made for `v1.0.6`: this file
+and `section-06-periodic-correction/README.md` described two
+computer-assisted claims where the paper and the script have three,
+`H(0)` having been added at `v1.0.4`.
 
 The paper proves two of the three conjectures G. J. Wirsching left open
 in *On the problem of positive predecessor density in 3n+1 dynamics*,
@@ -42,7 +56,7 @@ Sections 1, 2, 3 and 5 carry no computation.
 | Folder | Paper section | Backs |
 |---|---|---|
 | `section-04-conjecture-1/` | 4, Wirsching's Conjecture 1 | the generating-function cancellation, the partition bound (5), and the explicit constants of Lemmas 4.1 and 4.2 |
-| `section-06-periodic-correction/` | 6, the periodic correction | the certified enclosure of `osc(H)` and the derivative bounds (10) |
+| `section-06-periodic-correction/` | 6, the periodic correction | the certified enclosures of `osc(H)` and of `H(0)`, and the derivative bounds (10) |
 | `section-07-saddlepoint/` | 7, the uniform saddlepoint approximation | the constant chain behind Theorem 7.5 and the threshold `N >= 19` |
 | `section-08-envelope-lemma/` | 8, the envelope lemma | Lemma 8.1 and Proposition 8.2 |
 | `section-09-berg-kruppel-identity/` | 9, the Berg-Kruppel identity | Proposition 9.1 and the closed-form constant `C_P` |
@@ -56,12 +70,13 @@ run them, and what to expect.
 
 ## What is certified and what is not
 
-Only two kinds of claim in the paper are computer-assisted, and both
-live in `section-06-periodic-correction/`: the enclosure of `osc(H)` and
-the bounds on `H'` and `H''`. Those use Arb ball arithmetic through
-python-flint, at a working precision stated at the top of the script,
-and the script prints its input balls and final enclosure, so the
-printed run output is the certificate.
+Three claims in the paper are computer-assisted, and all three live in
+`section-06-periodic-correction/`: the enclosure of `osc(H)`, the
+enclosure of `H(0)` and hence of the constant `e^{H(0)}` that Theorem
+10.1 converges to, and the bounds on `H'` and `H''`. Those use Arb ball
+arithmetic through python-flint, at a working precision stated at the
+top of the script, and the script prints its input balls and final
+enclosure, so the printed run output is the certificate.
 
 Non-constancy of `H` is **not** among them. It is proved analytically,
 from the classical zero-free theorem for zeta on `Re s = 1`, with no

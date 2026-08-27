@@ -13,6 +13,8 @@ evaluates the assembled error bound E(N) at a range of N to confirm it is
 strictly decreasing, below 1 at N=19, and O(N^{-1/2}) with the stated limit.
 """
 
+import decimal
+
 import mpmath as mp
 
 mp.mp.dps = 60
@@ -50,7 +52,7 @@ def E_bound(N, alpha=mp.mpf(1) / 3):
     A = mp.mpf("1.4269413069")
     Vlo = N - A
     Vup = N + mp.mpf("0.1283")
-    B = (2 * N + mp.mpf("10.559")) / 6
+    B = (2 * N + mp.mpf("10.6")) / 6
     aN = mp.power(N, -alpha)
     eps = B * aN ** 3
     e1 = 4 * mp.e ** eps * B / (mp.sqrt(2 * mp.pi) * Vlo ** mp.mpf("1.5"))
@@ -128,8 +130,46 @@ def main():
 
     print("\nLemma 4: tail constant F = sum_{m>=0} f(3^m/2)")
     F = mp.nsum(lambda m: f_func(mp.mpf(3) ** m / 2), [0, mp.inf])
-    print(f"  F = {mp.nstr(F, 15)}  (stated: 1.8635631489)")
+    print(f"  F = {mp.nstr(F, 15)}")
     assert abs(F - mp.mpf("1.8635631489")) < mp.mpf("1e-9")
+
+    # Lemma 7.4 no longer quotes F itself. It bounds Sigma by elementary
+    # upper estimates of its first three terms plus an analytic tail, and
+    # the chain below is exactly what the paper prints. Each link is
+    # checked here rather than taken on the paper's word.
+    print("\nLemma 7.4's chain to S < 2N + 10.6")
+    heads = [(mp.mpf(1) / 2, "0.997"), (mp.mpf(3) / 2, "0.823"),
+             (mp.mpf(9) / 2, "0.046")]
+    for r, bound in heads:
+        v = f_func(r)
+        print(f"  f({mp.nstr(r,3)}) = {mp.nstr(v, 10)} < {bound}")
+        assert v < mp.mpf(bound), f"f({r}) exceeds its stated bound {bound}"
+    # the identity the paper derives, and the factor it bounds for r >= 5
+    for r in [mp.mpf(1) / 2, mp.mpf(5), mp.mpf("13.5")]:
+        lhs = f_func(r)
+        rhs = 4 * r ** 3 * mp.e ** (-2 * r) * (1 + mp.e ** (-2 * r)) / (1 - mp.e ** (-2 * r)) ** 3
+        assert abs(lhs - rhs) < mp.mpf("1e-30") * max(1, abs(lhs)), f"identity fails at r={r}"
+    fac5 = (1 + mp.e ** (-10)) / (1 - mp.e ** (-10)) ** 3
+    print(f"  (1+e^-2r)/(1-e^-2r)^3 at r=5: {mp.nstr(fac5, 10)} < 1.00025")
+    assert fac5 < mp.mpf("1.00025")
+    tail = mp.mpf("4.001") * mp.nsum(
+        lambda m: (mp.mpf(3) ** m / 2) ** 3 * mp.e ** (-(mp.mpf(3) ** m)), [3, mp.inf])
+    print(f"  tail from m=3: {mp.nstr(tail, 8)} < 2e-8")
+    assert tail < mp.mpf("2e-8")
+    # The purely decimal links are checked in exact decimal arithmetic:
+    # 0.997 + 0.823 + 0.046 is EXACTLY 1.866, and rounding it through
+    # binary floating point is how one convinces oneself otherwise.
+    D = decimal.Decimal
+    decimal.getcontext().prec = 50
+    head_sum = D("0.997") + D("0.823") + D("0.046")
+    sigma_bound = head_sum + D("2e-8")
+    print(f"  head bounds sum to exactly {head_sum}, so Sigma < {sigma_bound}")
+    assert head_sum == D("1.866"), "the three head bounds no longer sum to 1.866"
+    assert sigma_bound == D("1.86600002")
+    assert F < mp.mpf("1.86600002"), "the stated Sigma bound does not hold"
+    assert D(2).sqrt() ** 5 * D("1.86600002") < D("10.5557")
+    assert D("10.5557") + D("0.01704") < D("10.6")
+    print("  2^(5/2)*1.86600002 < 10.5557, and 10.5557 + 0.01704 < 10.6: S < 2N + 10.6")
 
     print("\nE(N): the assembled error bound, Theorem 13")
     print(f"{'N':>8}{'E(N)':>16}{'sqrt(N)*E(N)':>16}")
@@ -149,9 +189,14 @@ def main():
     print(f"sqrt(N)*E(N) at N=10^8: {mp.nstr(limit, 8)}  (claimed limit: 0.742358)")
     assert abs(limit - mp.mpf("0.742358")) < mp.mpf("0.01")
 
-    print("\nRemark 7.6: E strictly decreasing and E(N) <= 4.18 N^(-1/2)")
-    print("on every integer 19 <= N <= 5000. The paper says this is checked")
-    print("here; before today it was not, only eight sparse N were.")
+    # The paper NO LONGER claims either of the two properties below; the
+    # sentence that did was cut, because nothing downstream used it and it
+    # was a computational claim outside the three the paper declares. They
+    # are kept here because they are true, cheap, and useful to anyone
+    # reading E(N), and they are labelled as extra rather than as backing
+    # any statement in the manuscript.
+    print("\nExtra, backing no claim in the paper: E is strictly decreasing")
+    print("and sqrt(N) E(N) <= 4.18 on every integer 19 <= N <= 5000.")
     prev = None
     worst = mp.mpf(0)
     worst_N = None
