@@ -90,6 +90,7 @@ them.
 
 ## What changed in the paper as a result
 
-Nothing mathematical. The bibliography's caveat is gone, the entry cites
-the published article, and it prints the page on which each section and
-named result begins.
+Nothing mathematical. The bibliography's caveat is gone and the entry
+cites the published article; a footnote in the paper's section on
+Wirsching's chain states that every locator is to that article and
+prints the page on which each section and named result begins.

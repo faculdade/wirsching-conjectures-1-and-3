@@ -291,9 +291,9 @@ natural to it reaches, and where the argument developed here stops.
 \section{Wirsching's chain, from the primary source}
 \label{sec:chain}
 
-Every section, equation and result reference to \cite{Wirsching2003} in
-what follows is to the published article, and each was checked against
-it.\footnote{The numbering agrees throughout with the author's
+Every section, page, equation and result reference to
+\cite{Wirsching2003} in what follows is to the published article, and
+each was checked against it.\footnote{The numbering agrees throughout with the author's
 preliminary version, circulated as \emph{On positive predecessor density
 in $3n+1$ dynamics} (Katholische Universit\"at Eichst\"att), which we
 also read. Sections~1 to~7 of the published article begin on pp.~773,
@@ -1225,6 +1225,15 @@ $\sum_{m>4}|\hat H(m)|\le9.41\times10^{-20}$,
 and $4|\hat H(1)| \le 4.187449304\times10^{-4}$, giving $\operatorname{osc}(H) \le
 4.187981\times10^{-4}$, rigorously and unconditionally: this bound uses only the already-certified
 Fourier coefficients, not the grid search.
+
+Finally $H(0)$ itself, by the same three ingredients. Proposition~\ref{prop:Hfourier} gives
+$H(0) = \hat H(0) + 2\operatorname{Re}\sum_{m\ge1}\hat H(m)$. The zero mode is evaluated in ball
+arithmetic from its closed form there, using Arb's enclosures of $\gamma_E$ and of the first
+Stieltjes constant $\gamma_1$ together with $c=\log3$; the first $M=12$ nonzero modes are enclosed
+from the same closed form used above; and the discarded modes are bounded by
+$2\sum_{m>M}|\hat H(m)|$ through the majorant \eqref{eq:Hmajorant}, which at $M=12$ is below
+$10^{-50}$ and so is negligible against the width of the interval quoted. Exponentiating the
+resulting ball gives the interval for $e^{H(0)}$.
 \end{proof}
 
 \section{A uniform saddlepoint approximation}
@@ -1420,8 +1429,8 @@ on the sequence of $t$'s.
 
 \begin{remark}
 The estimate $|R(s)-1|\le E(N)$ becomes informative once $E(N)<1$, which holds at $N=19$ (see the
-proof: $E(18)=1.0020653\ldots\ge1$, $E(19)=0.9570558\ldots<1$); this is the threshold kept as the
-theorem's hypothesis (whether some smaller $N$ also gives $E(N)<1$ is immaterial to what follows and
+proof: $E(18)=1.0020653\ldots\ge1$, $E(19)=0.9570558\ldots<1$); this is the cutoff adopted in the
+theorem (whether some smaller $N$ also gives $E(N)<1$ is immaterial to what follows and
 is not checked). Only $E(N)\to0$ as $N\to\infty$ is used below.
 \end{remark}
 
@@ -1946,7 +1955,7 @@ $0.0418\%$.
 \begin{proposition}[Wirsching's actual requirement]
 \label{prop:wirschingreq}
 For $(x_\ell)\in\widetilde A_{\delta_5}$, write $x_\ell^+ := x_\ell + 3^{-(\ell+1)}$ (his own definition, unnumbered
-prose on p.~16 of \cite{Wirsching2003}, in the quotient estimate that
+prose in \cite[\S7, p.~785]{Wirsching2003}, in the quotient estimate that
 yields his (7.5); since
 $x_\ell\sim \ell\cdot3^{-\ell}$, $x_\ell^+$ is asymptotic to $x_\ell$ and plays the same role as this paper's
 $z_\ell$). Wirsching's own use of Conjecture 3, via $\varphi'(x)=\tfrac92\varphi(3x)$ on $(0,\tfrac23)$
@@ -2236,7 +2245,7 @@ give a polynomial rate throughout; neither theorem needs it.
 Every computation this paper reports is backed by a script in one
 repository, \url{https://github.com/faculdade/wirsching-conjectures-1-and-3},
 archived on Zenodo at \texttt{doi:10.5281/zenodo.22116225}, release
-\texttt{v1.0.4}, whose snapshot carries this paper, its source and the
+\texttt{v1.0.5}, whose snapshot carries this paper, its source and the
 scripts together in the state in which it was submitted. Zenodo's
 landing page for that DOI lists every release with the DOI it assigned
 to each. The repository is organized as one folder per section of
@@ -2373,8 +2382,8 @@ $\Lambda>0$.
 
 (c) Two preliminaries. First, replacing each $U_j$ by $1-U_j$ sends $X$
 to $1-X$, so $X$ is symmetric about $\tfrac12$ and
-$F_\varphi(s)=1-F_\varphi(1-s)$. Second, $X$ charges every subinterval
-of $(0,1)$ in the following sense: $0<F_\varphi(s)<1$ for $0<s<1$.
+$F_\varphi(s)=1-F_\varphi(1-s)$. Second, $0<F_\varphi(s)<1$ for every
+$0<s<1$.
 Indeed, given such an $s$, choose $N$ with
 $\sum_{j>N}2\cdot3^{-j}=3^{-N}<s/2$. On the event that $U_j<s/2$ for
 every $j\le N$, of probability $(s/2)^N>0$, the head satisfies
@@ -2688,8 +2697,8 @@ P.~Dumas, \emph{Mean asymptotic behaviour of radix-rational sequences and dilati
 arXiv:0807.1523 (2008).
 
 \bibitem{HeubergerKrenn2018}
-C.~Heuberger and D.~Krenn, \emph{Asymptotic analysis of regular sequences}, arXiv:1810.13178
-(2018; version 5, 2025).
+C.~Heuberger and D.~Krenn, \emph{Asymptotic analysis of regular sequences}, Algorithmica
+\textbf{82} (2020), no.~3, 429--508. DOI: 10.1007/s00453-019-00631-3.
 
 \end{thebibliography}
 
