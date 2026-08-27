@@ -1,13 +1,14 @@
-"""Independent audit of the explicit constant chain in Theorem 13 (uniform
-saddlepoint asymptotic), proof in Section 4 of
-papers/01-wirsching-conjecture3/main.tex (mirroring
-notes/H-006-formula-A-proof-2.md in the main project repository).
+"""Independent audit of the explicit constant chain in Theorem 7.5 (uniform
+saddlepoint asymptotic), whose proof is in section 7 of the paper archived
+in paper/ of this repository.  In the earlier standalone Conjecture 3
+preprint the same result was Theorem 13, in its section 4; the numbering
+in this docstring follows the current paper.
 
 This script evaluates the analytic upper-bound expressions from the proof at
 high precision and checks the numeric inequalities the proof states, exactly
 as the proof states them (it is diagnostic, not a source of any inequality:
 the written proof supplies the bounds, this script confirms the arithmetic).
-It also directly evaluates kappa_2, kappa_3 (Lemma 9) against numerical
+It also directly evaluates kappa_2, kappa_3 (Lemma 7.1) against numerical
 differentiation of the defining function, at real and complex arguments, and
 evaluates the assembled error bound E(N) at a range of N to confirm it is
 strictly decreasing, below 1 at N=19, and O(N^{-1/2}) with the stated limit.
@@ -48,7 +49,7 @@ def f_func(r):
 
 
 def E_bound(N, alpha=mp.mpf(1) / 3):
-    """The explicit bound E(N) assembled in the proof of Theorem 13."""
+    """The explicit bound E(N) assembled in the proof of Theorem 7.5."""
     A = mp.mpf("1.4269413069")
     Vlo = N - A
     Vup = N + mp.mpf("0.1283")
@@ -171,7 +172,7 @@ def main():
     assert D("10.5557") + D("0.01704") < D("10.6")
     print("  2^(5/2)*1.86600002 < 10.5557, and 10.5557 + 0.01704 < 10.6: S < 2N + 10.6")
 
-    print("\nE(N): the assembled error bound, Theorem 13")
+    print("\nE(N): the assembled error bound, Theorem 7.5")
     print(f"{'N':>8}{'E(N)':>16}{'sqrt(N)*E(N)':>16}")
     prev = None
     for N in [19, 20, 30, 50, 100, 1000, 10 ** 4, 10 ** 6]:
@@ -182,10 +183,14 @@ def main():
         prev = e
     e18 = E_bound(mp.mpf(18))
     e19 = E_bound(mp.mpf(19))
-    assert e18 > 1, "E(18) should be > 1 (N_0=19 is sharp)"
+    # E(18) >= 1 > E(19) is what the theorem's hypothesis N >= 19 rests on.
+    # It does NOT make 19 the least such N: whether some N < 18 also gives
+    # E(N) < 1 is not checked here and the paper deliberately does not claim
+    # it.  "Cutoff", not "threshold", and never "sharp".
+    assert e18 > 1, "E(18) should be > 1: the theorem's cutoff N=19 relies on it"
     assert e19 < 1, "E(19) should be < 1"
     limit = mp.sqrt(mp.mpf(10) ** 8) * E_bound(mp.mpf(10) ** 8)
-    print(f"\nE(18) = {mp.nstr(e18, 6)} > 1, E(19) = {mp.nstr(e19, 6)} < 1: confirmed, N_0=19")
+    print(f"\nE(18) = {mp.nstr(e18, 6)} > 1, E(19) = {mp.nstr(e19, 6)} < 1: the cutoff N=19 adopted in the theorem")
     print(f"sqrt(N)*E(N) at N=10^8: {mp.nstr(limit, 8)}  (claimed limit: 0.742358)")
     assert abs(limit - mp.mpf("0.742358")) < mp.mpf("0.01")
 

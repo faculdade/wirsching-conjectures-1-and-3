@@ -4,7 +4,7 @@ NOTE: as of a later revision of the paper, H's non-constancy itself is proven
 analytically (Hhat(1) != 0 by the classical zero-free theorem for zeta on
 Re(s)=1, no computation needed at all) -- this script's job is now only the
 *quantitative* certificate: a rigorous two-sided enclosure of osc(H), plus
-the derivative bounds (5) that Lemma 16 depends on.  The name is kept as
+the derivative bounds (5) that Lemma 8.1 depends on.  The name is kept as
 `certify_H_nonconstancy.py` for continuity with earlier paper drafts, but
 `main()`'s printed H(0) != H(log(3/2)) check below is now a stronger,
 special-case corollary of the analytic argument, not the primary proof of
@@ -73,7 +73,7 @@ def main():
     M = 4
     finite = arb(0)
     print("Raw Fourier coefficients Hhat(m), m=1..4 (as printed inline in the paper's")
-    print("Proposition 8, at 100-decimal working precision here vs. 250-bit there):")
+    print("Proposition 6.5, at 100-decimal working precision here vs. 250-bit there):")
     for m in range(1, M + 1):
         coeff = hhat(m, c, alpha)
         print(f"  Hhat({m}) = {coeff}")
@@ -151,7 +151,7 @@ def certify_derivative_bounds(c, alpha, q, A):
 
 
 def certify_oscillation(c, alpha):
-    """Certify osc(H) = sup H - inf H matching the paper's CURRENT Proposition 8
+    """Certify osc(H) = sup H - inf H matching the paper's CURRENT Proposition 6.5
     proof exactly (as of the blind-critique loop's Round 20 fix, which replaced
     an uncertified grid-plus-Lipschitz upper bound with a fully rigorous one).
 
@@ -205,7 +205,7 @@ def certify_oscillation(c, alpha):
     print(f"\nLower bound via N={n_grid} grid (h={h}), Fourier truncated at |m|<=10:")
     print(f"  max at grid index {hi_i}, min at grid index {lo_i}")
     print(f"  D = H(w_{hi_i}) - H(w_{lo_i}) = {D}")
-    print("  (paper's Proposition 8 quotes D = 4.187449477152e-4)")
+    print("  (paper's Proposition 6.5 quotes D = 4.187449477152e-4)")
     # No slack. The previous version subtracted 1e-13 here, roughly
     # nineteen times the true margin of 5.2e-15, so it would have
     # accepted a quoted bound larger than the computed value.
@@ -233,12 +233,12 @@ def certify_oscillation(c, alpha):
     print(f"  4|Hhat(1)| <= {four_h1}")
     print(f"  sum_(m>=2)|Hhat(m)| <= {sum_ge_2.upper()}")
     print(f"  osc(H) <= {osc_hi}")
-    print("  (paper's Proposition 8 quotes osc(H) <= 4.187981e-4)")
+    print("  (paper's Proposition 6.5 quotes osc(H) <= 4.187981e-4)")
     right = arb("4.187981e-4")
     assert osc_hi < right.upper(), (osc_hi, right)
 
     print(f"\nCertified two-sided enclosure: osc(H) in [{osc_lo}, {osc_hi}]")
-    print("  (paper's Proposition 8 quotes")
+    print("  (paper's Proposition 6.5 quotes")
     print("   [4.1874494771e-4, 4.187981e-4])")
 
 

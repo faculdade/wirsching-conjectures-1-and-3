@@ -1,6 +1,7 @@
 """Audit the exact P-versus-phi_0 constant calculation for H-006.
 
-The proof is recorded in notes/H-006.md.  This script only evaluates the
+The proof is in section 9 of the paper archived in paper/ of this
+repository.  This script only evaluates the
 closed formula at increasing tau, independently checking its numerical values.
 
 Convention matters:
