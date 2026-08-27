@@ -5,11 +5,16 @@ Program: Proofs of Conjectures 1 and 3*.
 
 Archived on Zenodo. The paper cites the concept DOI together with the
 release tag, for the reason below; to cite one exact snapshot on its
-own, use that release's version DOI:
+own, use that release's version DOI.
+
+Zenodo mints a release's version DOI at the moment the release is
+published, so no release can contain its own version DOI: the table
+below lists the ones that existed when this snapshot was cut, and the
+concept DOI's landing page lists every version including this one.
 
 | | DOI | resolves to |
 |---|---|---|
-| `v1.0.7` | the DOI Zenodo mints for this release; see the concept DOI's landing page | this exact snapshot, the one the paper cites |
+| `v1.0.7` | [10.5281/zenodo.22132375](https://doi.org/10.5281/zenodo.22132375) | commit `991e250` |
 | `v1.0.6` | [10.5281/zenodo.22132020](https://doi.org/10.5281/zenodo.22132020) | commit `4edb7a5` |
 | `v1.0.5` | [10.5281/zenodo.22129497](https://doi.org/10.5281/zenodo.22129497) | commit `2701970` |
 | `v1.0.4` | [10.5281/zenodo.22128300](https://doi.org/10.5281/zenodo.22128300) | commit `8b2ebc7` |
@@ -19,7 +24,7 @@ own, use that release's version DOI:
 | `v1.0.0` | [10.5281/zenodo.22116226](https://doi.org/10.5281/zenodo.22116226) | commit `40e378f` |
 | all versions | [10.5281/zenodo.22116225](https://doi.org/10.5281/zenodo.22116225) | whatever the latest release is |
 
-The paper cites the concept DOI together with the release tag `v1.0.7`.
+The paper cites the concept DOI together with the release tag `v1.0.8`.
 Both are fixed before the release exists, which is what lets the
 archived snapshot carry the submitted paper itself: same TeX, same PDF,
 same code, one commit. Each release mints its own version DOI and leaves
@@ -27,7 +32,7 @@ the older archives untouched; the concept DOI never changes and its
 Zenodo landing page lists every version with the DOI assigned to it.
 
 `paper/` carries the paper as it stood at the release that archived it.
-For `v1.0.7` that is the submitted manuscript exactly.
+For `v1.0.8` that is the submitted manuscript exactly.
 
 One note on this file and the per-folder READMEs. They are documentation
 and are corrected on the default branch when something in them is found
@@ -132,8 +137,7 @@ DOIs valid:
 
 This repository is the one the paper cites.
 
-Script docstrings and printed labels here name the results as the current
-paper numbers them. A few in-script comments still refer to auxiliary
-lemmas by the preprint's numbering, which the list above does not cover;
-where that happens the surrounding text says what the lemma is about, and
-the paper archived in `paper/` is the authority.
+Script docstrings and printed labels here name results as the current
+paper numbers them. Checked mechanically: every `Lemma N.M`,
+`Theorem N.M`, `Corollary N.M` and `Proposition N.M` this repository
+names exists under that number in the paper archived in `paper/`.

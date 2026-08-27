@@ -5,11 +5,12 @@
 \usepackage{enumitem}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+\usepackage{xurl}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,
   pdftitle={Wirsching's Positive-Predecessor-Density Program: Proofs of Conjectures 1 and 3},
   pdfauthor={Renato Augusto Tavares},
   pdfsubject={Number theory; 3n+1 dynamics; predecessor density},
-  pdfkeywords={Collatz conjecture; 3n+1 problem; predecessor density; Syracuse measure; equivalence of ensembles; Fabius function; Fabius density; log-periodic asymptotics; Mellin transform; atomic function}}
+  pdfkeywords={3x+1 problem; Collatz problem; predecessor density; positive asymptotic density; invariant density; two-scale difference equation; log-periodic asymptotics; uniform saddlepoint method; Mellin transform; Riemann zeta function}}
 % The section heading below hyphenated "methods" in the rendered PDF, which
 % a heading should not do. Declaring the exception costs no width, where an
 % \mbox made the heading overfull by 9pt.
@@ -589,14 +590,21 @@ Put
  \frac{g_m(j,a)}{\bar g_m(j)}\quad(m\ge L),
  \qquad k^*_m:=m\quad(m<L),
 \]
-which is well defined, and $(k^*_m)\in A_{\delta_1}$. Applying the hypothesis
-to this one sequence,
-$\liminf_m g_m(k^*_m,a)/\bar g_m(k^*_m)\ge\mu_1$, so there is $\ell_0$
-with $g_\ell(k^*_\ell,a)\ge(\mu_1-\varepsilon)\bar g_\ell(k^*_\ell)$
-for $\ell\ge\ell_0$; enlarge $\ell_0$ to $\max(\ell_0,L)$ so that
-$k^*_\ell$ is the window argmin there. By the choice of $k^*_\ell$ every $j\in W_\ell$
-has $g_\ell(j,a)/\bar g_\ell(j)\ge
-g_\ell(k^*_\ell,a)/\bar g_\ell(k^*_\ell)$, which is the claim.
+which is well defined, and $(k^*_m)\in A_{\delta_1}$. Applying the
+hypothesis to this one sequence,
+\[
+ \liminf_m \frac{g_m(k^*_m,a)}{\bar g_m(k^*_m)}\ \ge\ \mu_1 ,
+\]
+so there is $\ell_0$ with
+$g_\ell(k^*_\ell,a)\ge(\mu_1-\varepsilon)\bar g_\ell(k^*_\ell)$ for
+$\ell\ge\ell_0$; enlarge $\ell_0$ to $\max(\ell_0,L)$ so that
+$k^*_\ell$ is the window argmin there. By the choice of $k^*_\ell$,
+every $j\in W_\ell$ has
+\[
+ \frac{g_\ell(j,a)}{\bar g_\ell(j)}\ \ge\
+ \frac{g_\ell(k^*_\ell,a)}{\bar g_\ell(k^*_\ell)},
+\]
+which is the claim.
 \end{proof}
 
 The lemma turns control of one index per level into control of the
@@ -972,6 +980,7 @@ three at $z=0$ (each of $\Gamma(z)$, $\zeta(1+z)$ and $(3^z-1)^{-1}$ contributin
 pole at each remaining zero $z=i\omega_m$, $m\ne0$, of $3^z-1$. To the right of the imaginary axis
 it is analytic.
 
+\begin{sloppypar}
 Fix $\sigma\in(-1,0)$ and $\sigma'\in(0,1)$, and shift the inversion contour in
 $K(s)=(2\pi i)^{-1}\int_{(\sigma)}K^*(z)s^{-z}\,dz$ from $\sigma$ to $\sigma'$, using rectangles
 with horizontal sides at $\operatorname{Im}z=\pm T_M$, $T_M:=\pi(2M+1)/c$. On those sides
@@ -980,7 +989,9 @@ $3^z=3^{\operatorname{Re}z}e^{i\pi(2M+1)}=-3^{\operatorname{Re}z}$, so $|3^z-1| 
 power of $T_M$, uniformly for $\sigma\le\operatorname{Re}z\le\sigma'$, and $\zeta(1+z)$ grows at
 most polynomially there. The horizontal contributions therefore vanish as $M\to\infty$, the sum of
 residues converges absolutely, and on the right vertical line $|3^z-1|\ge3^{\sigma'}-1>0$ makes
-$\int_{(\sigma')}|K^*(z)s^{-z}|\,|dz| = O(s^{-\sigma'})$. So
+$\int_{(\sigma')}|K^*(z)s^{-z}|\,|dz| = O(s^{-\sigma'})$.
+\end{sloppypar}
+\noindent So
 \[
 K(s) = -\operatorname*{Res}_{z=0}\bigl[K^*(z)s^{-z}\bigr]
 -\sum_{m\ne0}\operatorname*{Res}_{z=i\omega_m}\bigl[K^*(z)s^{-z}\bigr]+O(s^{-\sigma'}).
@@ -1794,8 +1805,7 @@ of $\varphi$ suffices to imply $(\star4)$:''
 \end{quote}
 
 \noindent The conjecture that follows is $(\star5)$ of
-\S\ref{sec:chain}, restated here for reference, thirty pages after it
-was first met. His constant $c$ is kept as he wrote it and is unrelated
+\S\ref{sec:chain}, restated here for reference. His constant $c$ is kept as he wrote it and is unrelated
 to $c:=\log3$ of \S\ref{sec:periodic}.
 
 \begin{conjecture}
@@ -2252,10 +2262,11 @@ give a polynomial rate throughout; neither theorem needs it.
 
 \section*{Data Availability Statement}
 
+\begin{sloppypar}
 Every computation this paper reports is backed by a script in one
 repository, \url{https://github.com/faculdade/wirsching-conjectures-1-and-3},
 archived on Zenodo at \texttt{doi:10.5281/zenodo.22116225}, release
-\texttt{v1.0.7}, whose snapshot carries this paper, its source and the
+\texttt{v1.0.8}, whose snapshot carries this paper, its source and the
 scripts together in the state in which it was submitted. Zenodo's
 landing page for that DOI lists every release with the DOI it assigned
 to each. The repository is organized as one folder per section of
@@ -2267,6 +2278,7 @@ repository also holds \texttt{SOURCE\_CONCORDANCE.md}, recording
 item by item the agreement between the published 2003 article and the
 preliminary version, across the thirty-four locators this paper uses:
 seven sections, ten named results and seventeen numbered equations.
+\end{sloppypar}
 
 Three claims here are computer-assisted, and all three are in the folder
 for \S\ref{sec:periodic}: the enclosure of $\operatorname{osc}(H)$ and

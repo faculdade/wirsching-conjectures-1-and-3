@@ -32,7 +32,7 @@ def kappa_direct(n, z):
 
 
 def kappa_closed(z):
-    """Closed forms for kappa_2, kappa_3 (Section 4 of the paper)."""
+    """Closed forms for kappa_2, kappa_3 (section 7 of the paper)."""
     x = z / 2
     return (
         1 - x ** 2 / mp.sinh(x) ** 2,
@@ -71,7 +71,7 @@ def E_bound(N, alpha=mp.mpf(1) / 3):
 
 
 def main():
-    print("Lemma 1: sector bounds M_2 <= 3, M_3 <= 7.657 (sup over |Im w| <= Re w)")
+    print("Lemma 7.1, sector part: M_2 <= 3, M_3 <= 7.657 (sup over |Im w| <= Re w)")
     M2, M3 = mp.mpf(0), mp.mpf(0)
     for b in [mp.mpf("0.1"), mp.mpf(1), mp.mpf(3), mp.mpf("4.076"), mp.mpf(10), mp.mpf(30)]:
         for u in [mp.mpf(0), mp.mpf("0.5"), mp.mpf(1)]:
@@ -86,7 +86,7 @@ def main():
     print(f"  sampled sup |kappa_3| = {mp.nstr(M3, 8)} (bound 7.657)")
     assert M2 <= 3 and M3 <= mp.mpf("7.657")
 
-    print("\nLemma 1': local bound at |w|<=2: |kappa_2|<=0.114|w|^2, |kappa_3|<=0.0119|w|^4")
+    print("\nLemma 7.1, local part: at |w|<=2, |kappa_2|<=0.114|w|^2, |kappa_3|<=0.0119|w|^4")
     # The supremum of |kappa_2(w)/w^2| and |kappa_3(w)/w^4| over the closed
     # disc |w| <= 2 is attained on the boundary, by the maximum modulus
     # principle applied to each (both are analytic on Re w > 0 and the
@@ -124,12 +124,12 @@ def main():
         assert abs(k3c) <= mp.mpf("0.0119") * abs(z) ** 4
     print("  holds at sampled points")
 
-    print("\nLemma 2: variance constant A = sum_{m>=0} e(3^m/2)")
+    print("\nLemma 7.2: variance constant A = sum_{m>=0} e(3^m/2)")
     A = mp.nsum(lambda m: e_func(mp.mpf(3) ** m / 2), [0, mp.inf])
     print(f"  A = {mp.nstr(A, 15)}  (stated: 1.4269413069)")
     assert abs(A - mp.mpf("1.4269413069")) < mp.mpf("1e-9")
 
-    print("\nLemma 4: tail constant F = sum_{m>=0} f(3^m/2)")
+    print("\nLemma 7.4's Sigma = sum_{m>=0} f(3^m/2)")
     F = mp.nsum(lambda m: f_func(mp.mpf(3) ** m / 2), [0, mp.inf])
     print(f"  F = {mp.nstr(F, 15)}")
     assert abs(F - mp.mpf("1.8635631489")) < mp.mpf("1e-9")

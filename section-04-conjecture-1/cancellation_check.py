@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Coefficient-by-coefficient verification of the cancellation behind
-Theorem 4.1 (Wirsching's Conjecture 1).
+Theorem 4.3 (Wirsching's Conjecture 1).
 
 The paper's proof turns Wirsching's urn description of the averaged
 generators into two generating functions over the coin set
